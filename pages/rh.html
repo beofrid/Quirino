@@ -24,7 +24,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="../index.html">Escola</a>
+                                <a class="nav-link" href="escola.html">Escola</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="pedagogico.html">Setor Pedagógico</a>
@@ -33,11 +33,11 @@
                                 <a class="nav-link" href="rh.html">Setor RH</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="sobre.html">Sobre</a>
+                                <a class="nav-link" href="../index.html">Sobre</a>
                             </li>
                         </ul>
                         <span class="navbar-text">
-                            Escola Castelo | <a  href="#" id="sair" class="text-danger text-decoration-none">Sair</a>
+                            Escola Castelo | <a class="text-danger text-decoration-none" href="#" id="sair">Sair</a>
                         </span>
                     </div>
                 </div>
@@ -46,7 +46,12 @@
 
         <main>
             <div class="container">
-                <h2 class="mb-4">Painel do RH: Encaminhamento</h2>
+                <div class="d-flex justify-content-between align-items-center mb-4 gap-2">
+                    <h2 class="mb-4">Painel do RH: Encaminhamento</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEscolas">Gerenciar Escolas +</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCargos">Gerenciar Cargos +</button>
+                </div>
+
                 <div class="card shadow-sm p-4 bg-white">
                     <table class="table align-middle">
                         <thead>

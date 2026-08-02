@@ -1,34 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cargoSelect = document.getElementById("cargoSelect");
-    const cargos = JSON.parse(localStorage.getItem("positions")) || ["Professor", "Cuidador", "Servente"];
-    cargos.forEach(c => {
-        let opt = document.createElement("option");
-        opt.value = c.id;  
-        opt.textContent = c.nome;
-        cargoSelect.appendChild(opt);
-    });
+    if (cargoSelect) {
+        const cargos = JSON.parse(localStorage.getItem("positions")) || ["Professor", "Cuidador", "Servente"];
+        cargos.forEach(c => {
+            let opt = document.createElement("option");
+            opt.value = c.id;  
+            opt.textContent = c.nome;
+            cargoSelect.appendChild(opt);
+        });
+    }
 
     const radioSub = document.getElementById("tipoSubstituicao");
     const radioNovo = document.getElementById("tipoNovo");
     const divSub = document.getElementById("substituicao");
     const divCont = document.getElementById("contratacao");
-    
 
     function atualizarCampos() {
+        if (!radioSub || !radioNovo) return;
         if (radioSub.checked) {
-            divSub.style.display = "block";
-            divCont.style.display = "none";
+            if (divSub) divSub.style.display = "block";
+            if (divCont) divCont.style.display = "none";
         } else if(radioNovo.checked) {
-            divSub.style.display = "none";
-            divCont.style.display = "block";
+            if (divSub) divSub.style.display = "none";
+            if (divCont) divCont.style.display = "block";
         }
     }
 
-    radioSub.addEventListener("change", atualizarCampos);
-    radioNovo.addEventListener("change", atualizarCampos);
-    atualizarCampos();
+    radioSub?.addEventListener("change", atualizarCampos);
+    radioNovo?.addEventListener("change", atualizarCampos);
+    if (radioSub && radioNovo) atualizarCampos();
 });
-document.querySelector("#modalSolicitacao form").addEventListener("submit", (e) => {
+
+document.querySelector("#modalSolicitacao form")?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const requests = JSON.parse(localStorage.getItem("requests")) || [];
@@ -191,7 +194,7 @@ function abrirExcluir(id) {
     bootstrap.Modal.getOrCreateInstance(document.getElementById('modalExcluir')).show();
 }
 
-document.getElementById('btn-confirmar-exclusao').addEventListener('click', () => {
+document.getElementById('btn-confirmar-exclusao')?.addEventListener('click', () => {
     if (!idParaExcluir) return;
     let requests = JSON.parse(localStorage.getItem('requests')) || [];
     requests = requests.filter(r => r.id !== idParaExcluir);

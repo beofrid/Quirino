@@ -25,6 +25,7 @@ function createLocalStorageDB() {
 const container = document.getElementById("lista-solicitacoes");
 
 function renderRequests() {
+    if (!container) return; //evita erros nas páginas que não tem o elemento
     const requestList = JSON.parse(localStorage.getItem('requests')) || [];
     const positions = JSON.parse(localStorage.getItem('positions')) || [];
     
