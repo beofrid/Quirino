@@ -7,15 +7,17 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="../style.css">
+        <link rel="shortcut icon" href="../src/icon.ico" type="image/x-icon">
+
     
     </head>
-    <body class="bg-light montserrat">
+    <body class="bg-light d-flex flex-column min-vh-100 montserrat">
 
         <header>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html"><span class="fw-light"> Sistema</span> <span class="mystery-quest fw-bold">Quirino</span></a>
+                    <a class="navbar-brand" href="sobre.html"><img src="../src/icon.png" style="width: 40px;" alt="ficha de poker"> <span class="mystery-quest fw-bold">Quirino</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -35,7 +37,7 @@
                             </li>
                         </ul>
                         <span class="navbar-text">
-                            Escola Castelo | <a href="#" class="text-danger text-decoration-none">Sair</a>
+                            Escola Castelo | <a  href="#" id="sair"class="text-danger text-decoration-none">Sair</a>
                         </span>
                     </div>
                 </div>
@@ -44,7 +46,7 @@
 
         <main>
             <div class="container">
-                <h2 class="mb-4">Análise do Setor Pedagógico</h2>
+                <h2 class="mb-4">Painel do Pedagógico: Aprovações</h2>
                 <div class="card shadow-sm p-4 bg-white">
                     <table class="table align-middle">
                         <thead>
@@ -56,17 +58,31 @@
                             </tr>
                         </thead>
                         <tbody id="lista-pedagogico">
-                            <!-- Preenchido via JavaScript -->
                         </tbody>
                     </table>
                 </div>
             </div>
-
+            <div class="card w-25 mt-3 mx-3 border-warning bg-white p-4 caveat">
+                <h3 class="text-warning fw-bold">Nota do desenvolvedor</h3>               
+                <p class="fs-5">Aqui as solciitações com estado "pendente" podem ser autorizadas. No momento da autorização, ou não autorização a escola não pode mais acessar. Os atorizados aparecem para o RH.</p>
+                <p class="fs-5"> -Bruno</p>
+            </div>
         </main>
     
+        <footer class="bg-white border-top py-3 mt-auto">
+            <div class="container text-center text-muted small">
+                <p class="mb-1">© 2026 Sistema Quirino - Gestão de Contratações. Todos os direitos reservados.</p>
+                <p class="mb-0">Desenvolvido por <strong>Bruno Medeiros Dias</strong></p>
+                <p> Link do repositório <a class="text-muted fw-bold text-decoration-none" href="github.com">Github</a></p>
+                <a href="https://www.flaticon.com/free-icons/casino-chips" style="font-size: 0.6rem;" class="text-muted text-decoration-none" title="casino chips icons">Casino chips icons created by Anggara - Flaticon</a>
+            </div>
+        </footer>
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <script src="../scripts/modal.js"></script>
         <script src="../scripts/requestCard.js"></script>
+        <script src="../scripts/pedagogico.js"></script>
 
     </body>
 </html>

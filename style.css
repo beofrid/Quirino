@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mystery+Quest&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mystery+Quest&display=swap');
 
 .montserrat {
   font-family: "Montserrat", sans-serif;
@@ -14,6 +13,12 @@
   font-style: normal;
 }
 
+.caveat {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .navbar-nav .nav-link {
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -25,3 +30,24 @@
     color: #0d6efd !important;
     background-color: #f8f9fa;
   }
+
+  
+.btn-desfazer .texto-hover {
+    display: none;
+}
+.btn-desfazer:hover .texto-normal {
+    display: none;
+}
+.btn-desfazer:hover .texto-hover {
+    display: inline;
+}
+
+.btn-desfazer-rh .texto-hover {
+    display: none;
+}
+.btn-desfazer-rh:hover .texto-normal {
+    display: none;
+}
+.btn-desfazer-rh:hover .texto-hover {
+    display: inline;
+}

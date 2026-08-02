@@ -8,9 +8,10 @@ function createLocalStorageDB() {
     ];
     
     const requests = [
-        { id: 1, cargo: 1, horario: "8h 12h", tipo: "substituição", substituido: "José Andrade", matricula: "1324", justificativa: null, estado: "pendente" },
+        { id: 1, cargo: 1, horario: "8h 12h", tipo: "substituição", substituido: "José Andrade", matricula: "1324", justificativa: null, estado: "rejeitado" },
         { id: 2, cargo: 3, horario: "8h 12h / 14h 18h", tipo: "contratação", substituido: null, matricula: null, justificativa: "Atendimento de aluno com necessidades especiais", estado: "pendente" },
-        { id: 3, cargo: 5, horario: "8h 14h", tipo: "substituição", substituido: "Enzo Silva", matricula: "1234", justificativa: null, estado: "pendente" }
+        { id: 3, cargo: 5, horario: "8h 14h", tipo: "substituição", substituido: "Enzo Silva", matricula: "1234", justificativa: null, estado: "aprovado" },
+        { id: 4, cargo: 2, horario: "8h 12h / 13h 17h", tipo: "contratação", substituido: null, matricula: null, justificativa: "Limpeza do anexo II", estado: "contratado" }
     ];
     
     if (!localStorage.getItem('requests')) {
@@ -41,16 +42,34 @@ function renderRequests() {
 }
 
 function requestCard(req, nomeCargo) {
+    let badge;
+    switch(req.estado){
+        case "aprovado":
+            badge = "bg-light text-primary"
+            break;
+        case "pendente":
+            badge = "bg-secondary text-light"
+            break;
+        case "rejeitado":
+            badge = "bg-light text-secondary"
+            break;
+        case "contratado":
+            badge = "bg-light text-success"
+            break;
+    }
+
+const botoes = req.estado === "pendente" 
+    ? `<button class="btn btn-sm btn-outline-secondary" onclick="preencherModalEditar(${req.id})">Editar</button>
+       <button class="btn btn-sm btn-outline-danger" onclick="abrirExcluir(${req.id})">Excluir</button>`
+    : `<button class="btn btn-sm btn-outline-info" onclick="abrirVisualizar(${req.id})">Visualizar</button>`;
+    
     return `
         <tr>
             <td>#${req.id}</td>
             <td>${nomeCargo}</td>
             <td>${new Date().toLocaleDateString('pt-BR')}</td>
-            <td><span class="badge bg-warning text-dark">${req.estado}</span></td>
-            <td>
-                <button class="btn btn-sm btn-outline-secondary">Editar</button>
-                <button class="btn btn-sm btn-outline-danger">Excluir</button>
-            </td>
+            <td><span class="badge ${badge}">${req.estado}</span></td>
+            <td>${botoes}</td>
         </tr>
     `;
 }
