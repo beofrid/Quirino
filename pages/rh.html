@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sistema Quirino</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="/style.css">
+    
+    </head>
+    <body class="bg-light montserrat">
+
+        <header>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html"><span class="fw-light"> Sistema</span> <span class="mystery-quest fw-bold">Quirino</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html">Escola</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pages/pedagogico.html">Setor Pedagógico</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pages/rh.html">Setor RH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pages/sobre.html">Sobre</a>
+                            </li>
+                        </ul>
+                        <span class="navbar-text">
+                            Escola Castelo | <a href="#" class="text-danger text-decoration-none">Sair</a>
+                        </span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <h2 class="mb-4">Painel do Setor RH</h2>
+                <div class="card shadow-sm p-4 bg-white">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cargo</th>
+                                <th>Status Atual</th>
+                                <th>Encaminhamento</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-rh">
+                            <!-- Preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="/scripts/modal.js"></script>
+        <script src="/scripts/requestCard.js"></script>
+
+    </body>
+</html>
