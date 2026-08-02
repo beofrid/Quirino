@@ -2,7 +2,7 @@
 
 Link do projeto está aqui:
 
-https://beofrid.github.io/Quirinos/
+https://beofrid.github.io/Quirino/
 
 
  <h2>Sobre o Sistema Quirino</h2>
