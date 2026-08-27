@@ -8,71 +8,33 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="src/icon.ico" type="image/x-icon">
-
+        
     
     </head>
-    <body class="bg-light d-flex flex-column min-vh-100 montserrat">
+    <body>
 
-        <header>
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
-                <div class="container">
+        <main class="container d-flex justify-content-center align-items-center min-vh-100">
+            <div class="card shadow-sm p-4 w-100" style="max-width: 400px;">
+                <h3 class="text-center mb-4">
                     <a class="navbar-brand" href="sobre.html"><img src="src/icon.png" style="width: 40px;" alt="ficha de poker"> <span class="mystery-quest fw-bold">Quirino</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav me-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/escola.html">Escola</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/pedagogico.html">Setor Pedagógico</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/rh.html">Setor RH</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Sobre</a>
-                            </li>
-                        </ul>
-                        <span class="navbar-text">
-                            Escola Castelo | <a class="text-danger text-decoration-none" href="#" id="sair">Sair</a>
-                        </span>
+                    <br>Login 
+                </h3>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" required aria-required="true">
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="password" required>
                     </div>
-                </div>
-            </nav>
-        </header>
-
-        <main>
-            <div class="container">
-                <div class="card shadow-sm p-4 bg-white text-center">
-                    <h2>Sobre o Sistema <span class="mystery-quest fw-bold">Quirino</span></h2>
-                    <img src="src/icon.png" class="w-25 mx-auto" alt="ficha de poker">
-                    <p class="mt-3">
-                        O <span class="mystery-quest fw-bold fs-5">Quirino</span> foi criado para desburocratizar a gestão de contratações da Secretaria Municipal de Educação. Centraliza solicitações de escolas, aprovação do setor pedagógico e andamento pelo RH em um só local.
-                    <p class="mt-3"> Esse projeto é real, e tenho objetivo de seguir implementando após a entrega e aplicar na prática ainda neste ano.  Quando tiver em produção, cada pessoa poderá assumir apenas seu painel.</p>
-                        Meu objetivo é utilizar o sistema de autenticação e banco de dados do Firebase, implementar roles e criar mais algumas funcionalidades, como solicitação de aumento ou redução de carga horária.
-                        O nome é uma homenagem a um excelente estagiário do setor que finalizou tempo máximo de contrato e precisou ser demitido e faz muita falta pra todo o setor.
-                    
-                    
-                    </p>
-                </div>
+                    <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                    <div id="loginError" class="text-danger mt-2 text-center d-none" aria-live="polite"></div>
+                </form>
             </div>
-
         </main>
-        <footer class="bg-white border-top py-3 mt-auto">
-            <div class="container text-center text-muted small">
-                <p class="mb-1">© 2026 Sistema Quirino - Gestão de Contratações. Todos os direitos reservados.</p>
-                <p class="mb-0">Desenvolvido por <strong>Bruno Medeiros Dias</strong></p>
-                <p> Link do repositório <a class="text-muted fw-bold text-decoration-none" target="_blank" href="https://github.com/beofrid/Quirino">Github</a></p>
-                <a href="https://www.flaticon.com/free-icons/casino-chips" style="font-size: 0.6rem;" class="text-muted text-decoration-none" title="casino chips icons">Casino chips icons created by Anggara - Flaticon</a>
-            </div>
-        </footer>
-    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <script src="scripts/modal.js"></script>
-        <script src="scripts/requestCard.js"></script>
-
+        
+        <script type="module" src="/scripts/controllers/AuthController.js"></script>
+        
     </body>
 </html>
