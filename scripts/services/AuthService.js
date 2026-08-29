@@ -26,4 +26,15 @@ export class AuthService {
     hasRole(expectedRole) {
         return this.currentUser?.role === expectedRole;
     }
+
+
+    async getCurrentUser() {
+        const { data: { user }, error } = await this.supabase.auth.getUser();
+        
+        if (error || !user) {
+            console.warn("Usuário não autenticado:", error?.message);
+            return null;
+        }
+        return user;
+    }
 }
