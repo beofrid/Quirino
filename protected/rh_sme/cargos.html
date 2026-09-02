@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sistema Quirino</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="shortcut icon" href="/src/icon.ico" type="image/x-icon">
+        <script type="module" src="/scripts/components/PublicNavbar.js"></script>
+        <script type="module" src="/scripts/components/Footer.js"></script>
+        <script type="module" src="/scripts/components/AdmRequestNavbar.js"></script>
+    </head>
+    <body class="bg-light d-flex flex-column min-vh-100 montserrat">
+
+        <header>
+            <public-navbar></public-navbar>
+        </header>
+        <main>
+            <div class="container">
+                <h2 class="mb-4">Painel do RH: Cargos cadastrados</h2>
+
+                <request-navbar active="cargos"></request-navbar>
+
+                <div class="card shadow-sm p-4 bg-white">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Cargo</th>
+                                <th>Carga horária</th>
+
+                            </tr>
+                            <tr>
+                                <td>Professor de Educação Infantil</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Iniciais</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Atendimento Educacional Especializado</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Finais - Arte</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Finais - Ciências</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Finais - Educação Física</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Finais - Geografia</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Finais - História</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Finais - Matemática</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Professor de Anos Finais - Português</td>
+                                <td>20h</td>
+                            </tr>
+                            <tr>
+                                <td>Cuidador</td>
+                                <td>40h</td>
+                            </tr>
+                            <tr>
+                                <td>Secretário de Escola</td>
+                                <td>40h</td>
+                            </tr>
+                            <tr>
+                                <td>Servente</td>
+                                <td>40h</td>
+                            </tr>
+                            
+                        </thead>
+                        <tbody id="lista-cargos">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-white border-top py-3 mt-auto">
+            <page-footer></page-footer>
+        </footer>
+
+    </body>
+</html>

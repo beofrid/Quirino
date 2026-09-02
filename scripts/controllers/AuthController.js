@@ -33,8 +33,8 @@ class AuthController {
     redirectUser(role) {
         const routes = {
             'escola': 'protected/escola.html',
-            'pedagogico': 'protected/pedagogico.html',
-            'rh_sme': 'protected/rh_sme.html',
+            'pedagogico': 'protected/pedagogico/painel.html',
+            'rh_sme': 'protected/rh_sme/contrata.html',
             'rh_adm': 'protected/rh_adm.html'
         };
         window.location.href = routes[role] || 'login.html';

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sistema Quirino</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="shortcut icon" href="/src/icon.ico" type="image/x-icon">
+        <script type="module" src="/scripts/components/PublicNavbar.js"></script>
+        <script type="module" src="/scripts/components/Footer.js"></script>
+        <script type="module" src="/scripts/components/AdmRequestNavbar.js"></script>
+    </head>
+    <body class="bg-light d-flex flex-column min-vh-100 montserrat">
+
+        <header>
+            <public-navbar></public-navbar>
+        </header>
+        <main>
+            <div class="container">
+                <h2 class="mb-4">Painel do RH: Regime Suplementar</h2>
+       
+
+                <request-navbar active="desdobramento"></request-navbar>
+
+                <div class="card shadow-sm p-4 bg-white">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Escola</th>
+                                <th>Tipo</th>
+                                <th>CH</th>
+                                <th>Status</th>
+                                <th>Ação</th>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Gabriela Hilário Iglesias</td>
+                                <td>Castelo</td>
+                                <td>Conceder</td>
+                                <td>3h</td>
+                                <td> <span class="badge bg-light text-primary">aprovado_pedagogico</span></td>
+
+                                <td>
+                                    <div>
+                                        <button class="btn btn-sm bg-success text-white me-1">Encaminhar</button>
+                                        <button class="btn btn-sm btn-outline-info">Ver</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Denise Eduarda Figueira</td>
+                                <td>Mercedes</td>
+                                <td>Cancelar</td>
+                                <td>20h</td>
+                                <td> <span class="badge bg-light text-primary">aprovado_pedagogico</span></td>
+
+                                <td>
+                                    <div>
+                                        <button class="btn btn-sm bg-success text-white me-1">Encaminhar</button>
+                                        <button class="btn btn-sm btn-outline-info">Ver</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-rh">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-white border-top py-3 mt-auto">
+            <page-footer></page-footer>
+        </footer>
+
+    </body>
+</html>
+
