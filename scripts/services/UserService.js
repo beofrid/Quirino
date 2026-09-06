@@ -4,23 +4,40 @@ export class UserService {
     }
 
     async criarUsuario(email, password, role, nomeSetor) {
-        // 1. Cria o usuário na tabela de autenticação
         const { data: authData, error: authError } = await this.supabase.auth.signUp({
             email,
             password
         });
 
-        if (authError) throw new Error(`Erro na autenticação: ${authError.message}`);
-        
-        const userId = authData.user.id;
+        if (authError) {
+            throw new Error(`Erro na autenticação: ${authError.message}`);
+        }
 
-        // 2. Insere a role e o setor na tabela de perfis
+        if (!authData.user) {
+            throw new Error('O Supabase não retornou os dados do novo usuário.');
+        }
+
         const { error: profileError } = await this.supabase
             .from('profiles')
-            .insert([{ id: userId, role: role, name: nomeSetor }]);
+            .insert([{ id: authData.user.id, role, name: nomeSetor }]);
 
-        if (profileError) throw new Error(`Erro ao salvar perfil: ${profileError.message}`);
+        if (profileError) {
+            throw new Error(`Erro ao salvar perfil: ${profileError.message}`);
+        }
 
         return authData.user;
+    }
+
+    async listarUsuarios() {
+        const { data, error } = await this.supabase
+            .from('profiles')
+            .select('id, name, role')
+            .order('name', { ascending: true });
+
+        if (error) {
+            throw new Error(`Erro ao carregar usuários: ${error.message}`);
+        }
+
+        return data || [];
     }
 }
