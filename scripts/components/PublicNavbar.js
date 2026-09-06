@@ -29,13 +29,16 @@ class PublicNavbar extends HTMLElement {
                                 <li class="nav-item">
                                     <a class="nav-link" href="/public/ajuda.html">Ajuda</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a id="painelTrabalhoLink" class="nav-link" href="/index.html">Painel de trabalho</a>
+                                </li>
                             </ul>    
 
                             <span class="navbar-text ">
                                 <span id="userEmailDisplay" class="badge bg-secondary rounded-pill fw-normal" aria-live="polite">
                                     Carregando...
                                 </span> | 
-                                <a class="text-danger text-decoration-none" href="#" id="sair">Sair</a>
+                                <a class="text-secondary text-decoration-none" href="/index.html" id="sessionAction">Carregando...</a>
                             </span>
                         </div>
                     </div>

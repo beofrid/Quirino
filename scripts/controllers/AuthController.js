@@ -1,4 +1,5 @@
 import { supabase } from '../config/supabase.js';
+import { getRouteForRole } from '../config/roleRoutes.js';
 import { AuthService } from '../services/AuthService.js';
 
 class AuthController {
@@ -31,13 +32,7 @@ class AuthController {
     }
 
     redirectUser(role) {
-        const routes = {
-            'escola': 'protected/escola.html',
-            'pedagogico': 'protected/pedagogico/painel.html',
-            'rh_sme': 'protected/rh_sme/contrata.html',
-            'rh_adm': 'protected/rh_adm.html'
-        };
-        window.location.href = routes[role] || 'login.html';
+        window.location.href = getRouteForRole(role);
     }
 }
 
