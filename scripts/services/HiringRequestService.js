@@ -53,15 +53,21 @@ export class HiringRequestService {
         }
 
         const idRequest = await this.criarRequisicaoPrincipal(user.id);
+            console.log('Request criada:', idRequest);
+
         const idHiringRequest = await this.criarDetalhesContratacao(idRequest, dados);
+            console.log('Hiring request criada:', idHiringRequest);
+
         await this.criarHorarios(idHiringRequest, dados.horarios);
+                console.log('Horários criados');
+
         return idRequest;
     }
 
     async criarRequisicaoPrincipal(userId) {
         const { data, error } = await this.supabase
             .from('requests')
-            .insert([{ id_profile: userId, status: 'pendente' }])
+            .insert([{ id_profile: userId, status: 'aguardando_pedagogico' }])
             .select('id_request')
             .single();
 
