@@ -1,3 +1,5 @@
+import { appUrl } from '../config/appPaths.js';
+
 class RequestNavbar extends HTMLElement {
     constructor() {
         super();
@@ -6,27 +8,27 @@ class RequestNavbar extends HTMLElement {
             {
                 id: "contratacao",
                 label: "Contratação",
-                route: "contrata.html"
+                route: appUrl('protected/rh_sme/contrata.html')
             },
             {
                 id: "desdobramento",
                 label: "Regime Suplementar",
-                route: "desdobramento.html"
+                route: appUrl('protected/rh_sme/desdobramento.html')
             },
             {
                 id: "ferias",
                 label: "Férias",
-                route: "ferias.html"
+                route: appUrl('protected/rh_sme/ferias.html')
             },
             {
                 id: "usuarios",
                 label: "Gerenciar Usuários",
-                route: "users.html"
+                route: appUrl('protected/rh_sme/users.html')
             },
             {
                 id: "cargos",
                 label: "Ver Cargos",
-                route: "cargos.html"
+                route: appUrl('protected/rh_sme/cargos.html')
             }
         ];
     }

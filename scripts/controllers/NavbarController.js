@@ -1,4 +1,5 @@
 import { supabase } from '../config/supabase.js';
+import { appUrl } from '../config/appPaths.js';
 import { getRouteForRole } from '../config/roleRoutes.js';
 import { AuthService } from '../services/AuthService.js';
 
@@ -41,7 +42,7 @@ export class NavbarController {
             this.painelTrabalhoLink.href = getRouteForRole(this.authService.currentUser?.role);
         } catch (error) {
             console.error('Erro ao carregar o perfil para o painel:', error);
-            this.painelTrabalhoLink.href = '/index.html';
+            this.painelTrabalhoLink.href = appUrl('index.html');
         }
     }
 
@@ -54,7 +55,7 @@ export class NavbarController {
 
         try {
             await this.authService.logout();
-            window.location.href = '/index.html';
+            window.location.href = appUrl('index.html');
         } catch (error) {
             console.error('Erro ao encerrar sessão:', error);
             this.emailDisplay.textContent = error.message || 'Erro ao sair';
@@ -78,11 +79,11 @@ export class NavbarController {
         this.emailDisplay.textContent = 'Não logado';
         this.emailDisplay.className = 'badge bg-secondary rounded-pill fw-normal';
         this.sessionAction.textContent = 'Entrar';
-        this.sessionAction.href = '/index.html';
+        this.sessionAction.href = appUrl('index.html');
         this.sessionAction.className = 'text-primary text-decoration-none';
 
         if (this.painelTrabalhoLink) {
-            this.painelTrabalhoLink.href = '/index.html';
+            this.painelTrabalhoLink.href = appUrl('index.html');
         }
     }
 
@@ -91,11 +92,11 @@ export class NavbarController {
         this.emailDisplay.textContent = 'Erro ao carregar usuário';
         this.emailDisplay.className = 'badge bg-danger rounded-pill fw-normal';
         this.sessionAction.textContent = 'Entrar';
-        this.sessionAction.href = '/index.html';
+        this.sessionAction.href = appUrl('index.html');
         this.sessionAction.className = 'text-primary text-decoration-none';
 
         if (this.painelTrabalhoLink) {
-            this.painelTrabalhoLink.href = '/index.html';
+            this.painelTrabalhoLink.href = appUrl('index.html');
         }
     }
 }

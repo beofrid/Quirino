@@ -1,4 +1,5 @@
 import { NavbarController } from '../controllers/NavbarController.js';
+import { appUrl } from '../config/appPaths.js';
 
 class EscolaNavbar extends HTMLElement {
     constructor() {
@@ -14,8 +15,8 @@ class EscolaNavbar extends HTMLElement {
         this.innerHTML = `
             <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4" aria-label="Navegação da escola">
                 <div class="container">
-                    <a class="navbar-brand" href="/public/sobre.html">
-                        <img src="/src/icon.png" style="width: 40px;" alt="">
+                    <a class="navbar-brand" href="${appUrl('public/sobre.html')}">
+                        <img src="${appUrl('src/icon.png')}" style="width: 40px;" alt="">
                         <span class="mystery-quest fw-bold">Quirino</span>
                     </a>
 
@@ -34,16 +35,16 @@ class EscolaNavbar extends HTMLElement {
                     <div class="collapse navbar-collapse" id="navbarEscola">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/protected/escola/contrata.html">Contratação</a>
+                                <a class="nav-link" href="${appUrl('protected/escola/contrata.html')}">Contratação</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/protected/escola/desdobramento.html">Desdobramento</a>
+                                <a class="nav-link" href="${appUrl('protected/escola/desdobramento.html')}">Desdobramento</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/ferias.html">Férias</a>
+                                <a class="nav-link" href="${appUrl('public/ferias.html')}">Férias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/ajuda.html">Ajuda</a>
+                                <a class="nav-link" href="${appUrl('public/ajuda.html')}">Ajuda</a>
                             </li>
                         </ul>
 
@@ -52,7 +53,7 @@ class EscolaNavbar extends HTMLElement {
                                 Carregando...
                             </span>
                             <span aria-hidden="true"> | </span>
-                            <a class="text-secondary text-decoration-none" href="/index.html" id="sessionAction">
+                            <a class="text-secondary text-decoration-none" href="${appUrl('index.html')}" id="sessionAction">
                                 Carregando...
                             </a>
                         </span>

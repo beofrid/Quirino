@@ -1,4 +1,5 @@
-import { supabase } from './config/supabase.js';
+import { appUrl } from '../config/appPaths.js';
+import { supabase } from '../config/supabase.js';
 
 export class AuthManager {
     constructor(client) {
@@ -12,7 +13,7 @@ export class AuthManager {
         this.supabase.auth.onAuthStateChange((event, session) => {
             this.session = session;
             if (event === 'SIGNED_OUT') {
-                window.location.href = '/login.html';
+                window.location.href = appUrl('index.html');
             }
         });
     }
