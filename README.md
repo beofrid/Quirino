@@ -2,7 +2,7 @@
 
 Link do projeto está aqui:
 ⚠️⚠️⚠️Ainda não está funcionando muito bem no Github Pages⚠️⚠️⚠️
-https://beofrid.github.io/Quirino/
+Assim que corrigir disponibilizo o link aqui
 
 
 
