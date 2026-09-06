@@ -19,6 +19,18 @@ class PublicNavbar extends HTMLElement {
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                             <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="/public/ferias.html">Férias</a>
+                                </li>
+                                <li class="nav-item">   
+                                    <a class="nav-link" href="/public/sobre.html">Sobre</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/public/ajuda.html">Ajuda</a>
+                                </li>
+                            </ul>    
+
                             <span class="navbar-text ">
                                 <span id="userEmailDisplay" class="badge bg-secondary rounded-pill fw-normal" aria-live="polite">
                                     Carregando...

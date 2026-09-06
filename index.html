@@ -8,12 +8,19 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="src/icon.ico" type="image/x-icon">
-        
+        <script type="module" src="/scripts/components/PublicNavbar.js"></script>
+        <script type="module" src="/scripts/controllers/AuthController.js"></script>
+        <script type="module" src="/scripts/components/Footer.js"></script>
+
     
     </head>
-    <body>
+    <body class="bg-light d-flex flex-column min-vh-100 montserrat">
+        <header>
+            <public-navbar></public-navbar>
+        </header>
 
-        <main class="container d-flex justify-content-center align-items-center min-vh-100">
+
+        <main class="container d-flex justify-content-center align-items-center flex-grow-1">
             <div class="card shadow-sm p-4 w-100" style="max-width: 400px;">
                 <h3 class="text-center mb-4">
                     <a class="navbar-brand" href="sobre.html"><img src="src/icon.png" style="width: 40px;" alt="ficha de poker"> <span class="mystery-quest fw-bold">Quirino</span></a>
@@ -34,7 +41,8 @@
             </div>
         </main>
         
-        <script type="module" src="/scripts/controllers/AuthController.js"></script>
-        
+        <footer class="bg-white border-top py-3 mt-auto">
+            <page-footer></page-footer>
+        </footer>        
     </body>
 </html>
