@@ -43,7 +43,8 @@
                 </div>
 
                 <div class="card shadow-sm p-4 bg-white">
-                    <table class="table align-middle">
+                    <div class="table-responsive">
+                    <table class="table align-middle mb-0">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -53,8 +54,13 @@
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody id="lista-solicitacoes"></tbody>
+                        <tbody id="lista-solicitacoes">
+                            <tr>
+                                <td colspan="5" class="text-center text-secondary py-4">Carregando solicitações...</td>
+                            </tr>
+                        </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
 

@@ -3,52 +3,61 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sistema Quirino</title>
+        <title>Login | Sistema Quirino</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="shortcut icon" href="src/icon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="shortcut icon" href="/src/icon.ico" type="image/x-icon">
         <script type="module" src="/scripts/components/PublicNavbar.js"></script>
         <script type="module" src="/scripts/controllers/AuthController.js"></script>
         <script type="module" src="/scripts/components/Footer.js"></script>
-
-    
     </head>
+
     <body class="bg-light d-flex flex-column min-vh-100 montserrat">
         <header>
             <public-navbar></public-navbar>
         </header>
 
+        <main class="container d-flex justify-content-center align-items-center flex-grow-1 pb-4">
+            <section class="card border-0 shadow-sm p-4 w-100" style="max-width: 400px;" aria-labelledby="tituloLogin">
+                <h1 id="tituloLogin" class="text-center h3 mb-4">
+                    <a class="navbar-brand" href="/public/sobre.html">
+                        <img src="/src/icon.png" style="width: 40px;" alt="">
+                        <span class="mystery-quest fw-bold">Quirino</span>
+                    </a>
+                    <span class="d-block mt-2">Login</span>
+                </h1>
 
-        <main class="container d-flex justify-content-center align-items-center flex-grow-1">
-            <div class="card shadow-sm p-4 w-100" style="max-width: 400px;">
-                <h3 class="text-center mb-4">
-                    <a class="navbar-brand" href="sobre.html"><img src="src/icon.png" style="width: 40px;" alt="ficha de poker"> <span class="mystery-quest fw-bold">Quirino</span></a>
-                    <br>Login 
-                </h3>
                 <form id="loginForm">
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" required aria-required="true">
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            autocomplete="username"
+                            required
+                            aria-required="true"
+                        >
+                    </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="password" required>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            autocomplete="current-password"
+                            required
+                            aria-required="true"
+                        >
                     </div>
+
                     <button type="submit" class="btn btn-primary w-100">Entrar</button>
-                    <div id="loginError" class="text-danger mt-2 text-center d-none" aria-live="polite"></div>
+                    <div id="loginError" class="text-danger mt-2 text-center d-none" role="alert" aria-live="polite"></div>
                 </form>
-                <p class="text-info fw-bold small">Usuários para testes:</p>
-                <ul class="text-info small">
-                    <li>Rh SME (administrador): beofrid@gmail.com </li>
-                    <li>Escola: escola@email.com </li>
-                    <li>Pedagógico: pedagogico@email.com </li>
-                    <li>Rh da Prefeitura: rh@email.com </li>
-                </ul>
-                <p class="text-info fw-bold small">Senha padrão admin123</p>
-            </div>
+            </section>
         </main>
-        
+
         <footer class="bg-white border-top py-3 mt-auto">
             <page-footer></page-footer>
         </footer>

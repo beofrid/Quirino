@@ -13,6 +13,37 @@ export class HiringRequestService {
         return data || [];
     }
 
+    async listarSolicitacoesDaEscola() {
+        const { data: userData, error: userError } = await this.supabase.auth.getUser();
+        const user = userData?.user;
+
+        if (userError || !user) {
+            throw new Error('Sua sessão expirou. Entre novamente para consultar as solicitações.');
+        }
+
+        const { data, error } = await this.supabase
+            .from('requests')
+            .select(`
+                id_request,
+                created_at,
+                status,
+                hiring_requests!inner (
+                    id_hiring_request,
+                    positions (
+                        position
+                    )
+                )
+            `)
+            .eq('id_profile', user.id)
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            throw new Error(`Erro ao carregar solicitações: ${error.message}`);
+        }
+
+        return data || [];
+    }
+
     async criarSolicitacao(dados) {
         const { data: userData, error: userError } = await this.supabase.auth.getUser();
         const user = userData?.user;
