@@ -6,47 +6,96 @@ export class NavbarController {
     constructor(navbarElement) {
         this.authService = new AuthService(supabase);
         this.emailDisplay = navbarElement.querySelector('#userEmailDisplay');
-        this.sessionAction = navbarElement.querySelector('#sessionAction');
+        this.sessionAction = navbarElement.querySelector('#sessionAction, #sair');
         this.painelTrabalhoLink = navbarElement.querySelector('#painelTrabalhoLink');
+        this.isAuthenticated = false;
         this.init();
     }
 
     async init() {
-        if (!this.emailDisplay || !this.sessionAction || !this.painelTrabalhoLink) return;
+        if (!this.emailDisplay || !this.sessionAction) return;
+
+        this.sessionAction.addEventListener('click', (event) => this.handleSessionAction(event));
 
         try {
             const user = await this.authService.getCurrentUser();
 
-            if (user?.email) {
-                await this.authService.loadUserProfile(user.id);
-
-                this.emailDisplay.textContent = user.email;
-                this.emailDisplay.classList.replace('bg-secondary', 'bg-primary');
-                this.sessionAction.textContent = 'Sair';
-                this.sessionAction.href = '#';
-                this.sessionAction.classList.replace('text-secondary', 'text-danger');
-                this.painelTrabalhoLink.href = getRouteForRole(this.authService.currentUser?.role);
+            if (!user?.email) {
+                this.showLoggedOutState();
                 return;
             }
 
-            this.showLoggedOutState();
+            this.showLoggedInState(user.email);
+            await this.configureWorkPanelLink(user.id);
         } catch (error) {
             console.error('Erro ao carregar os dados da navbar:', error);
-            this.emailDisplay.textContent = 'Erro ao carregar usuário';
-            this.emailDisplay.classList.replace('bg-secondary', 'bg-danger');
-            this.showLoggedOutActions();
+            this.showLoadingError();
         }
     }
 
-    showLoggedOutState() {
-        this.emailDisplay.textContent = 'Não logado';
-        this.showLoggedOutActions();
+    async configureWorkPanelLink(userId) {
+        if (!this.painelTrabalhoLink) return;
+
+        try {
+            await this.authService.loadUserProfile(userId);
+            this.painelTrabalhoLink.href = getRouteForRole(this.authService.currentUser?.role);
+        } catch (error) {
+            console.error('Erro ao carregar o perfil para o painel:', error);
+            this.painelTrabalhoLink.href = '/index.html';
+        }
     }
 
-    showLoggedOutActions() {
+    async handleSessionAction(event) {
+        if (!this.isAuthenticated) return;
+
+        event.preventDefault();
+        this.sessionAction.setAttribute('aria-disabled', 'true');
+        this.sessionAction.textContent = 'Saindo...';
+
+        try {
+            await this.authService.logout();
+            window.location.href = '/index.html';
+        } catch (error) {
+            console.error('Erro ao encerrar sessão:', error);
+            this.emailDisplay.textContent = error.message || 'Erro ao sair';
+            this.emailDisplay.className = 'badge bg-danger rounded-pill fw-normal';
+            this.sessionAction.removeAttribute('aria-disabled');
+            this.sessionAction.textContent = 'Sair';
+        }
+    }
+
+    showLoggedInState(email) {
+        this.isAuthenticated = true;
+        this.emailDisplay.textContent = email;
+        this.emailDisplay.className = 'badge bg-primary rounded-pill fw-normal';
+        this.sessionAction.textContent = 'Sair';
+        this.sessionAction.href = '#';
+        this.sessionAction.className = 'text-danger text-decoration-none';
+    }
+
+    showLoggedOutState() {
+        this.isAuthenticated = false;
+        this.emailDisplay.textContent = 'Não logado';
+        this.emailDisplay.className = 'badge bg-secondary rounded-pill fw-normal';
         this.sessionAction.textContent = 'Entrar';
         this.sessionAction.href = '/index.html';
-        this.sessionAction.classList.replace('text-secondary', 'text-primary');
-        this.painelTrabalhoLink.href = '/index.html';
+        this.sessionAction.className = 'text-primary text-decoration-none';
+
+        if (this.painelTrabalhoLink) {
+            this.painelTrabalhoLink.href = '/index.html';
+        }
+    }
+
+    showLoadingError() {
+        this.isAuthenticated = false;
+        this.emailDisplay.textContent = 'Erro ao carregar usuário';
+        this.emailDisplay.className = 'badge bg-danger rounded-pill fw-normal';
+        this.sessionAction.textContent = 'Entrar';
+        this.sessionAction.href = '/index.html';
+        this.sessionAction.className = 'text-primary text-decoration-none';
+
+        if (this.painelTrabalhoLink) {
+            this.painelTrabalhoLink.href = '/index.html';
+        }
     }
 }

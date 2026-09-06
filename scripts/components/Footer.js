@@ -1,4 +1,4 @@
-class pageFooter extends HTMLElement {
+class PageFooter extends HTMLElement {
     constructor() {
         super();
     }
@@ -10,14 +10,17 @@ class pageFooter extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="container text-center text-muted">
-                <p class="mb-1">© 2026 Sistema Quirino - Gestão escolar. Todos os direitos reservados.</p>
-                <p class="mb-0">Desenvolvido por <strong>Bruno Medeiros Dias</strong></p>
-                <p> Link do repositório <a class="text-muted fw-bold text-decoration-none" target="_blank" href="https://github.com/beofrid/Quirino">Github</a></p>
-                <a href="https://www.flaticon.com/free-icons/casino-chips" style="font-size: 0.6rem;" class="text-muted text-decoration-none" title="casino chips icons">Casino chips icons created by Anggara - Flaticon</a>
+                <p class="mb-1">© 2026 Sistema Quirino — Gestão escolar. Todos os direitos reservados.</p>
+                <p class="mb-1">Desenvolvido por <strong>Bruno Medeiros Dias</strong></p>
+                <nav class="mb-2" aria-label="Links do rodapé">
+                    <a class="text-muted fw-bold text-decoration-none" href="/public/mapa-site.html">Mapa do site</a>
+                    <span aria-hidden="true"> | </span>
+                    <a class="text-muted fw-bold text-decoration-none" target="_blank" rel="noopener noreferrer" href="https://github.com/beofrid/Quirino">GitHub</a>
+                </nav>
+                <a href="https://www.flaticon.com/free-icons/casino-chips" style="font-size: 0.6rem;" class="text-muted text-decoration-none" title="Ícones de fichas de cassino">Casino chips icons created by Anggara — Flaticon</a>
             </div>
-                `;
-        }
+        `;
     }
+}
 
-    customElements.define('page-footer', pageFooter);
-
+customElements.define('page-footer', PageFooter);

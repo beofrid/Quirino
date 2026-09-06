@@ -37,4 +37,14 @@ export class AuthService {
         }
         return user;
     }
+
+    async logout() {
+        const { error } = await this.supabase.auth.signOut();
+
+        if (error) {
+            throw new Error(`Erro ao sair: ${error.message}`);
+        }
+
+        this.currentUser = null;
+    }
 }

@@ -8,7 +8,7 @@ export class AuthManager {
     }
 
     initSessionListener() {
-        // Escuta ativamente o status da sessão do usuário
+        // Escuta o status da sessão do usuário
         this.supabase.auth.onAuthStateChange((event, session) => {
             this.session = session;
             if (event === 'SIGNED_OUT') {
