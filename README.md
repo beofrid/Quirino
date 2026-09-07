@@ -1,8 +1,7 @@
 # Bem vindo ao sistema Quirino 
 
 Link do projeto está aqui:
-⚠️⚠️⚠️Ainda não está funcionando muito bem no Github Pages⚠️⚠️⚠️
-Assim que corrigir disponibilizo o link aqui
+### https://beofrid.github.io/Quirino/
 
 
 
