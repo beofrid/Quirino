@@ -32,6 +32,12 @@ Senha padrão: `admin123`
                         
 ## Status de implementação das páginas 06/09/2026
 
+### Páginas com a indicação abaixo estão com dados simulados (mockados) ou sem a conexão com o banco ainda:
+ <img width="35" height="46" alt="image" src="https://github.com/user-attachments/assets/eba01b75-c369-4f23-b472-e486cd7b388e" />
+
+<br>
+<br>
+
 | Página | Estado | Situação |
 |-|-|-|
 | `index.html` | 🟢 Funcional | Login integrado ao Supabase e redirecionamento por perfil implementados. O HTML do formulário ainda possui inconsistências estruturais e exibe credenciais de teste. |
